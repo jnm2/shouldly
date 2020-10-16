@@ -277,52 +277,52 @@ namespace Shouldly
             }
         }
 
-        public static bool GreaterThanOrEqualTo<T>([AllowNull] T comparable, [AllowNull] T expected) where T : IComparable<T>?
+        public static bool GreaterThanOrEqualTo<T>([AllowNull] T comparable, [AllowNull] T expected) where T : IComparable<T?>?
         {
             return Compare(comparable, expected) >= 0;
         }
 
-        public static bool GreaterThanOrEqualTo<T>([AllowNull] T actual, [AllowNull] T expected, IComparer<T> comparer)
+        public static bool GreaterThanOrEqualTo<T>([AllowNull] T actual, [AllowNull] T expected, IComparer<T?> comparer)
         {
             return Compare(actual, expected, comparer) >= 0;
         }
 
-        public static bool LessThanOrEqualTo<T>([AllowNull] T comparable, [AllowNull] T expected) where T : IComparable<T>?
+        public static bool LessThanOrEqualTo<T>([AllowNull] T comparable, [AllowNull] T expected) where T : IComparable<T?>?
         {
             return Compare(comparable, expected) <= 0;
         }
 
-        public static bool LessThanOrEqualTo<T>([AllowNull] T actual, [AllowNull] T expected, IComparer<T> comparer)
+        public static bool LessThanOrEqualTo<T>([AllowNull] T actual, [AllowNull] T expected, IComparer<T?> comparer)
         {
             return Compare(actual, expected, comparer) <= 0;
         }
 
-        public static bool GreaterThan<T>([AllowNull] T comparable, [AllowNull] T expected) where T : IComparable<T>?
+        public static bool GreaterThan<T>([AllowNull] T comparable, [AllowNull] T expected) where T : IComparable<T?>?
         {
             return Compare(comparable, expected) > 0;
         }
 
-        public static bool GreaterThan<T>([AllowNull] T actual, [AllowNull] T expected, IComparer<T> comparer)
+        public static bool GreaterThan<T>([AllowNull] T actual, [AllowNull] T expected, IComparer<T?> comparer)
         {
             return Compare(actual, expected, comparer) > 0;
         }
 
-        public static bool LessThan<T>([AllowNull] T comparable, [AllowNull] T expected) where T : IComparable<T>?
+        public static bool LessThan<T>([AllowNull] T comparable, [AllowNull] T expected) where T : IComparable<T?>?
         {
             return Compare(comparable, expected) < 0;
         }
 
-        public static bool LessThan<T>([AllowNull] T actual, [AllowNull] T expected, IComparer<T> comparer)
+        public static bool LessThan<T>([AllowNull] T actual, [AllowNull] T expected, IComparer<T?> comparer)
         {
             return Compare(actual, expected, comparer) < 0;
         }
 
-        static decimal Compare<T>([AllowNull] T actual, [AllowNull] T expected, IComparer<T> comparer)
+        static decimal Compare<T>([AllowNull] T actual, [AllowNull] T expected, IComparer<T?> comparer)
         {
             return comparer.Compare(actual, expected);
         }
 
-        static decimal Compare<T>([AllowNull] T comparable, [AllowNull] T expected) where T : IComparable<T>?
+        static decimal Compare<T>([AllowNull] T comparable, [AllowNull] T expected) where T : IComparable<T?>?
         {
             if (!typeof(T).IsValueType())
             {
