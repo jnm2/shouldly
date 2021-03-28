@@ -50,8 +50,8 @@ namespace Shouldly.Configuration
 
         private static bool ContainsAttribute(MemberInfo member, string attributeName)
         {
-            return member.CustomAttributes.Any(a =>
-                a.AttributeType.FullName?.StartsWith(attributeName, StringComparison.Ordinal) ?? false);
+            return CustomAttributeData.GetCustomAttributes(member).Any(a =>
+                a.Constructor.DeclaringType!.FullName?.StartsWith(attributeName, StringComparison.Ordinal) ?? false);
         }
 
         private readonly struct OriginalMethodInfo

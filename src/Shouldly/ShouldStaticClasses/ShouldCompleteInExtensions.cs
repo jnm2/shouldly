@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿#if !NET35
+using System.Threading;
 using System;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -86,3 +87,4 @@ namespace Shouldly
         }
     }
 }
+#endif

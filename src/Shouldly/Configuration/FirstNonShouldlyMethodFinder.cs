@@ -21,8 +21,13 @@ namespace Shouldly.Configuration
 
         public TestMethodInfo GetTestMethodInfo(StackTrace stackTrace, int startAt = 0)
         {
-            foreach (var (i, frame) in stackTrace.GetFrames().AsIndexed().Skip(startAt))
+            var frames = stackTrace.GetFrames();
+
+            for (var i = 0; i < frames.Length; i++)
             {
+                if (i < startAt) continue;
+
+                var frame = frames[i];
                 if (frame.GetMethod() is { } method && !method.IsShouldlyMethod() && !IsCompilerGenerated(method))
                 {
                     var callingFrame = stackTrace.GetFrame(i + Offset)

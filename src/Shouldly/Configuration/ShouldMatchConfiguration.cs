@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if !NET35
+using System;
 using DiffEngine;
 
 namespace Shouldly.Configuration
@@ -48,3 +49,4 @@ namespace Shouldly.Configuration
                 => $"{testMethodInfo.DeclaringTypeName}.{testMethodInfo.MethodName}{discriminator}.{type}.{extension}";
     }
 }
+#endif

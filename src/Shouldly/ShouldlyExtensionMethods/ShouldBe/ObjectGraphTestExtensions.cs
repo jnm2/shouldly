@@ -32,7 +32,7 @@ namespace Shouldly
 
             var type = GetTypeToCompare(actual, expected, path, customMessage, shouldlyMethod);
 
-            if (type.GetTypeInfo().IsValueType)
+            if (type.IsValueType)
             {
                 CompareValueTypes((ValueType)actual, (ValueType)expected, path, customMessage, shouldlyMethod);
             }
@@ -154,8 +154,8 @@ namespace Shouldly
                     throw new NotSupportedException("Comparing types that have indexers is not supported.");
                 }
 
-                var actualValue = property.GetValue(actual, Array.Empty<object>());
-                var expectedValue = property.GetValue(expected, Array.Empty<object>());
+                var actualValue = property.GetValue(actual, null);
+                var expectedValue = property.GetValue(expected, null);
 
                 var newPath = path.Concat(new[] {property.Name});
                 CompareObjects(actualValue, expectedValue, newPath.ToList(), previousComparisons, customMessage, shouldlyMethod);

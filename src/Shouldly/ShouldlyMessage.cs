@@ -263,8 +263,10 @@ namespace Shouldly
             new ShouldNotHaveFlagMessageGenerator(),
             new ShouldBeNullOrEmptyMessageGenerator(),
             new ShouldBeEmptyMessageGenerator(),
+#if !NET35
             new ShouldAllBeMessageGenerator(),
             new DynamicShouldMessageGenerator(),
+#endif
             new ShouldCompleteInMessageGenerator(),
             new ShouldBeNullOrWhiteSpaceMessageGenerator(),
             new DictionaryShouldContainKeyAndValueMessageGenerator(),

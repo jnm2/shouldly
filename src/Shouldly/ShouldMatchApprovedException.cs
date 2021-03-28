@@ -1,3 +1,4 @@
+#if !NET35
 namespace Shouldly
 {
     public class ShouldMatchApprovedException : ShouldAssertException
@@ -31,3 +32,4 @@ cp ""{receivedFile}"" ""{approvedFile}""";
         }
     }
 }
+#endif

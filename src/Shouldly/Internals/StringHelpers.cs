@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -72,10 +73,12 @@ namespace Shouldly
                 return info.GetValue(constant.Value).ToStringAwesomely();
             }
 
+#if !NET35
             if (value is BinaryExpression binaryExpression)
             {
                 return ExpressionToString.ExpressionStringBuilder.ToString(binaryExpression);
             }
+#endif
 
             if (objectType.IsGenericType() && objectType.GetGenericTypeDefinition() == typeof(KeyValuePair<,>)){
                 var key = objectType.GetProperty("Key")!.GetValue(value, null);
@@ -175,9 +178,13 @@ namespace Shouldly
             return c.ToString();
         }
 
-        internal static bool IsNullOrWhiteSpace(this string? s)
+        internal static bool IsNullOrWhiteSpace([NotNullWhen(false)] this string? s)
         {
+#if NET35
+            return s is null || s.Trim().Length == 0;
+#else
             return string.IsNullOrWhiteSpace(s);
+#endif
         }
 
         internal static string? NormalizeLineEndings(this string? s)

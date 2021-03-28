@@ -15,8 +15,7 @@ namespace Shouldly
         [ContractAnnotation("actual:null => halt")]
         public static void ShouldNotBeNullOrWhiteSpace([NotNull] this string? actual, string? customMessage = null)
         {
-            // TODO make this an extension method (str.IsNullOrWhitespace())
-            if (string.IsNullOrWhiteSpace(actual))
+            if (actual.IsNullOrWhiteSpace())
                 throw new ShouldAssertException(new ExpectedShouldlyMessage(actual, customMessage).ToString());
         }
     }

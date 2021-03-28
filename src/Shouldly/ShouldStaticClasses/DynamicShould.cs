@@ -1,3 +1,4 @@
+#if !NET35
 using System;
 using System.Dynamic;
 using System.Collections.Generic;
@@ -37,3 +38,4 @@ namespace Shouldly
         }
     }
 }
+#endif

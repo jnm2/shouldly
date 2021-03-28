@@ -1,3 +1,4 @@
+#if !NET35
 using System;
 
 namespace Shouldly.Configuration
@@ -102,3 +103,4 @@ namespace Shouldly.Configuration
         }
     }
 }
+#endif

@@ -18,6 +18,7 @@ namespace Shouldly
 
         public static List<string> CompareAsObjectTypes { get; }
 
+#if !NET35
         public static ShouldMatchConfigurationBuilder ShouldMatchApprovedDefaults { get; } =
             new ShouldMatchConfigurationBuilder(new ShouldMatchConfiguration
             {
@@ -49,6 +50,9 @@ namespace Shouldly
                 CallContext.LogicalSetData("ShouldlyDisableSourceInErrors", null);
             }
         }
+#else
+        public static bool IsSourceDisabledInErrors() => false;
+#endif
 
         public static double DefaultFloatingPointTolerance = 0.0d;
         public static TimeSpan DefaultTaskTimeout = TimeSpan.FromSeconds(10);

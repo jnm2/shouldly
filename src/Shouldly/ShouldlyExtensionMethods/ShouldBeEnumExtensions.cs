@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if !NET35
+using System;
 
 namespace Shouldly.ShouldlyExtensionMethods
 {
@@ -32,3 +33,4 @@ namespace Shouldly.ShouldlyExtensionMethods
         }
     }
 }
+#endif

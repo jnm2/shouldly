@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if !NET35
+using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
@@ -121,3 +122,4 @@ namespace Shouldly
         }
     }
 }
+#endif

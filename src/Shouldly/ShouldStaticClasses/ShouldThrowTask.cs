@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if !NET35
+using System;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
@@ -226,3 +227,4 @@ namespace Shouldly
         }
     }
 }
+#endif

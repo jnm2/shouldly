@@ -1,3 +1,4 @@
+#if !NET35
 using System.Text.RegularExpressions;
 using ExpressionToString;
 
@@ -26,3 +27,4 @@ namespace Shouldly.MessageGenerators
         }
     }
 }
+#endif

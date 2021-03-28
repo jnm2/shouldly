@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿#if !NET35
+using System.Collections.Generic;
 
 namespace Shouldly.Internals
 {
@@ -16,3 +17,4 @@ namespace Shouldly.Internals
         }
     }
 }
+#endif

@@ -9,12 +9,12 @@ namespace Shouldly
     internal static class TypeExtensions
     {
         public static bool IsValueType(this Type type) =>
-            type.GetTypeInfo().IsValueType;
+            type.IsValueType;
         public static bool IsGenericType(this Type type) =>
-            type.GetTypeInfo().IsGenericType;
+            type.IsGenericType;
 
         public static bool IsDefined(this Type type, Type attributeType, bool inherit) =>
-            type.GetTypeInfo().IsDefined(attributeType, inherit);
+            type.IsDefined(attributeType, inherit);
 
         public static bool TryGetEnumerable(this object obj,  [NotNullWhen(true)] out IEnumerable? enumerable)
         {

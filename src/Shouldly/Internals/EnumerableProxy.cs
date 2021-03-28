@@ -14,7 +14,11 @@ namespace Shouldly.Internals
     {
         public static IEnumerable<T>? WrapNonCollection(IEnumerable<T>? baseEnum)
         {
-            if(baseEnum is (null or IReadOnlyCollection<T> or ICollection<T> or ICollection))
+            if (baseEnum is (null
+#if !NET35
+                or IReadOnlyCollection<T>
+#endif
+                or ICollection<T> or ICollection))
             {
                 return baseEnum;
             }

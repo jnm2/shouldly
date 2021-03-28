@@ -1,3 +1,4 @@
+#if !NET35
 namespace Shouldly
 {
     internal static class ShouldlyEnvironmentContext
@@ -12,3 +13,4 @@ namespace Shouldly
            => System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(System.Runtime.InteropServices.OSPlatform.Linux);
     }
 }
+#endif

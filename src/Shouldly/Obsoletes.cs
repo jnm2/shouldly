@@ -1,3 +1,4 @@
+#if !NET35 // There has not been a net35 v4 build with these methods.
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -1111,3 +1112,4 @@ namespace Shouldly.Configuration
     {
     }
 }
+#endif

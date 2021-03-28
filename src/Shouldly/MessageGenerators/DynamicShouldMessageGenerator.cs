@@ -1,3 +1,4 @@
+#if !NET35
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -40,3 +41,4 @@ namespace Shouldly.MessageGenerators
         }
     }
 }
+#endif

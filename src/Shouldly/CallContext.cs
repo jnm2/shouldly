@@ -1,4 +1,5 @@
-﻿using System.Collections.Concurrent;
+﻿#if !NET35
+using System.Collections.Concurrent;
 using System.Threading;
 
 namespace Shouldly
@@ -24,3 +25,4 @@ namespace Shouldly
             state.TryGetValue(name, out AsyncLocal<object?>? data) ? data.Value : null;
     }
 }
+#endif
